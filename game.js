@@ -19,14 +19,16 @@ $(document).keypress(function () {
 });
 
 $(".btn").click(function (event) {
-  let userChosenColour = event.target.id;
-  userClickedPattern.push(userChosenColour);
+  if (started) {
+    let userChosenColour = event.target.id;
+    userClickedPattern.push(userChosenColour);
 
-  playSound(userChosenColour);
+    playSound(userChosenColour);
 
-  animatePress(userChosenColour);
+    animatePress(userChosenColour);
 
-  checkAnswer(userClickedPattern.length - 1);
+    checkAnswer(userClickedPattern.length - 1);
+  }
 })
 
 function nextSequence() {
